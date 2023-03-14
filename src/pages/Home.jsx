@@ -2,9 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import chopping from "/src/images/chopping.jpg"
 
-// useState to expand or useEffect
-
-
 export default function Home() {
     return (
         <div>
@@ -16,7 +13,7 @@ export default function Home() {
                 <h2>Sharpened the same techique as legendary katana sword</h2>
                 <p>Our knives are made traditional way. The technique wes told through generations from father to son. It was known only in small region, far North in Japan Mountains. Hakaiku the knife master now changed the direction...</p>
                 <Link to='knives'>
-                    <button>Find out more</button>
+                    <button className="paragraph-button">Find out more</button>
                 </Link>
                 <h2>Forged for Kitchen Samurai</h2>
             </div>
