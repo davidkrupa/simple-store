@@ -9,6 +9,7 @@ import Product from './pages/product/Product'
 import Details from './pages/product/Details'
 import ShippingInfo from './pages/product/ShippingInfo'
 import Specification from './pages/product/Specification'
+import KniveInfo from './pages/product/KniveInfo'
 
 export default function App() {
 
@@ -22,7 +23,11 @@ export default function App() {
           <Route path='knives' element={<Product />} >
             <Route path='details' element={<Details />}/>
             <Route path='shipping-info' element={<ShippingInfo />} />
-            <Route path='specification' element={<Specification />} />
+            <Route path='specification' element={<Specification />} >
+              <Route index element={<KniveInfo />} />
+              <Route path='1' element={<KniveInfo />} />
+              <Route path='2' element={<KniveInfo />} />
+            </Route>
           </Route>
         </Route>
       </Routes>

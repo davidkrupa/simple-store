@@ -1,34 +1,47 @@
-import React from "react";
-import image from "../../images/type1.png"
+import React, { useEffect, useState } from "react";
+import { NavLink, Outlet, useOutletContext } from "react-router-dom";
 
 export default function Specification() {
+    const products = useOutletContext()
+    const [count, setCount] = useState(0)
+    
+    const chosenSet = products.sets.filter(set => set.isChosen)[0]
+
+    useEffect(() => {
+        setCount(0)
+    }, [products])
+
+    function handlePrev() {
+        if(count > 0)
+        setCount(count -1)
+        else
+        setCount(chosenSet.productsIds.length - 1)
+    }
+
+    function handleNext() {
+        if(count < chosenSet.productsIds.length - 1)
+        setCount(count + 1)
+        else if (count === chosenSet.productsIds.length - 1)
+        setCount(0)
+    }
+
+    const productData = products.knives.find(knife => knife.id === chosenSet.productsIds[count]?.toString()) || products.knives[0]
+    console.log(productData)
 
     return (
         <div className="specification-container">
-            <div>
+            <nav>
+                <p onClick={()=>handlePrev()}>prev</p>
+                <p>{count}</p>
+                <p onClick={()=>handleNext()}> next</p>
+
+            </nav>
             <div className="specification-img"> 
-                <img src={image} />
+                <img src={products.knives[count].image} />
             </div>
-                <div className="specification-row">
-                    <p>Blade Length:</p>
-                    <p>19.3cm</p>
-                </div>
-                <div className="specification-row">
-                    <p>Handle Length:</p>
-                    <p>13.5cm</p>
-                </div>
-                <div className="specification-row">
-                    <p>Width:</p>
-                    <p>4.3cm</p>
-                </div>
-                <div className="specification-row">
-                    <p>Tickness:</p>
-                    <p>2mm</p>
-                </div>
-                <div className="specification-row">
-                    <p>Weight:</p>
-                    <p>198g</p>
-                </div>
+            <div className="specification-row">
+                <p>Blade Length:</p>
+                <p>{productData.bladeLength}cm</p>
             </div>
         </div>
     )

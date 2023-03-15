@@ -1,18 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink, Outlet } from "react-router-dom";
-import image from "../../images/set-of-3.jpg"
-import image2 from "../../images/set-of-5.jpg"
-import image3 from "../../images/knife-chopping-2.jpg"
+import image_chopping from "../../images/knife-chopping-2.jpg"
+import { productsData } from "../../data/data"
 
 export default function Product() {
 
-    const [isFirstChosen, setIsFirstChosen] = useState(true)
+    
+    const [allVariants, setAllVariants] = useState(productsData)
+    const [chosenVariant, setChosenVariant] = useState(productsData.sets[0])
 
-    const chosen = {
+    const chosenStyle = {
         backgroundColor: "#24242C",
         color: "#D8D8D8"         
     }
-    const unchosen = {
+    const unchosenStyle = {
         backgroundColor: "transparent",
         color: "#24242C"          
     }
@@ -21,43 +22,68 @@ export default function Product() {
         textDecoration: "underline"
     }
 
+    
+    function changeVariant(id) {
+        setAllVariants(prev => {            
+            const sets = prev.sets.map(set => {
+                if (set.id === id) {
+                    return {...set, isChosen: true}
+                }
+                else return {...set, isChosen: false}
+            })
+            return {...prev, sets: sets}
+        })
+    }
+    
+    useEffect(() => {
+        setChosenVariant(allVariants.sets.filter(set => set.isChosen === true)[0])
+    }, [allVariants])
+
+    const {image, price, productsIds, isChosen} = chosenVariant
+
+    const variantsButtons = allVariants.sets.map(set => {
+        return (
+            <button 
+                onClick={() => changeVariant(set.id)} 
+                style={set.isChosen ? chosenStyle : unchosenStyle}
+                key={set.id}
+            >
+                {set.name}
+            </button>
+        )
+    })
+
     return (
         <div className="product-page-container">
-            <img src={isFirstChosen ? image : image2} />
-            <h1 className="product-title">Katana knives - {isFirstChosen ? "3" : "5"}pcs</h1>
-            <p className="price">${isFirstChosen ? "49.99" : "69.99"}</p>
+            <img src={image} />
+            <h1 className="product-title">Katana knives - {productsIds.length}pcs</h1>
+            <p className="price">${price}</p>
             <div className="options-container">
-                <p 
-                    onClick={() => setIsFirstChosen(true)} 
-                    style={isFirstChosen ? chosen : unchosen}>
-                    set of 3
-                </p>
-                <p 
-                    onClick={() => setIsFirstChosen(false)} 
-                    style={!isFirstChosen ? chosen : unchosen}>
-                    set of 5
-                </p>
+                {variantsButtons}
             </div>
-            <button>Buy now</button>
+            <button className="buy-button">Buy now</button>
             <nav>
                 <NavLink 
                     to="details" 
-                    style={({isActive}) => isActive ? active : null}>
+                    style={({isActive}) => isActive ? active : null}
+                >
                     Details
                 </NavLink>
                 <NavLink 
                     to="shipping-info" 
-                    style={({isActive}) => isActive ? active : null}>
+                    style={({isActive}) => isActive ? active : null}
+                >
                     Shipping
                 </NavLink>
                 <NavLink 
                     to="specification" 
-                    style={({isActive}) => isActive ? active : null}>
+                    style={({isActive}) => isActive ? active : null}
+                >
                     Specification
                 </NavLink>
             </nav>
-            <Outlet />
-            <img src={image3} />
+            <Outlet context={allVariants}/>
+            <img src={image_chopping} />
         </div>
 
     )
