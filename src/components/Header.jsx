@@ -10,7 +10,7 @@ export default function Header() {
 
     return (
         <header>
-            <Link to='/'>#Funnel</Link>
+            <Link to='/'>#Katana</Link>
             <nav>
                 <NavLink 
                     to='contact' 

@@ -5,13 +5,13 @@
 }
 
 body {
+  font-family: 'Montserrat', sans-serif;
   margin: 0;
   padding: 0;
-  font-family: 'Montserrat', sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  background-color: rgb(243, 243, 243);
   color: #24242C;
+  background-color: rgb(243, 243, 243);
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
@@ -20,23 +20,26 @@ body::-webkit-scrollbar {
   display: none;
 }
 
-.hero-image > h1 {
-  font-size: 3.2rem;
-  letter-spacing: 0.03em;
+h1 {
+  font-size: 2rem;
   margin: 0;
-  color: rgb(231, 231, 231);
-  text-shadow: 0 3px 0 rgb(19, 19, 19);
 }
 
-.hero-image > h3 {
-  font-size: 1.4rem;
-  letter-spacing: 0.03em;
-  font-weight: 400;
+h3 {
+  font-size: 1rem;
+  font-weight: 600;
   margin: 0;
-  color: rgb(231, 231, 231);
-  text-shadow: 0 3px 0 rgb(19, 19, 19);
-  border-bottom: 2px solid #588544;
 }
+
+button {
+  background-color: #588544;
+  font-family: inherit;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.3em;
+}
+
+/* Layout */
 
 .site-container {
   display: flex;
@@ -44,22 +47,21 @@ body::-webkit-scrollbar {
   min-height: 100vh;
 }
 
-header, .home-content {
-  padding: 0 2em;
-}
+/* Header */
 
 header {
   display: flex;
   align-items: center;
   height: 3em;
+  padding: 0 2em;
+  font-size: 0.85rem;
+  font-weight: 600;
   background-color: #24242C;
 }
 
 header a {
-  font-size: 0.85rem;
-  font-weight: 600;
   color: #D8D8D8;
-  padding-right: 1em;
+  padding-right: 1.2em;
   text-decoration: none;
 }
 
@@ -71,50 +73,73 @@ header a:hover {
 /* Footer */
 
 footer {
-  background-color: #24242C;
-  font-size: 1rem;
-  font-weight: 400;
-  text-align: center;
-  color: #D8D8D8;
   letter-spacing: 0.05em;
+  text-align: center;
   margin-top: auto;
+  color: #D8D8D8;
+  background-color: #24242C;
 }
 
-/* Home */
+/* Home Page */
 
-.hero-image {
-  height: 550px;
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-wrap: wrap;
+  height: 100vh;
   width: auto;
   background-image: linear-gradient(to bottom, #0000007d, rgba(46, 46, 46, 0.5)), url('./src/images/background.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;  
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
+@media screen and (min-width: 400px) {
+  .hero {
+    height: 600px;
+  }
 }
 
-@media screen and (min-width: 550px) { 
-  
+.hero h1 {
+  font-size: 3.2rem;
+  letter-spacing: 0.03em;
+  color: rgb(243, 243, 243);
+  text-shadow: 0 3px 0 rgb(19, 19, 19);
 }
 
-button {
-  background-color: #588544;
-  font-family: inherit;
-  font-weight: 600;
-  border: none;
-  border-radius: 0.3em;
+.hero h3 {
+  font-size: 1.4rem;
+  letter-spacing: 0.03em;
+  font-weight: 400;
+  color: rgb(243, 243, 243);
+  text-shadow: 0 3px 0 rgb(19, 19, 19);
+  border-bottom: 2px solid #588544;
 }
 
-.paragraph-button {
+.home-paragraph {
+  padding: 0 2em;
+}
+
+.home-paragraph h2 {
+  padding-top: 1em;
+  padding-bottom: 0.5em;
+}
+
+.home-paragraph span {
+  border-bottom: 4px solid green;
+}
+
+.home-paragraph button {
+  color: rgb(243, 243, 243);
   padding: 1em 2em;
-  color: white;
+  margin-top: 0.7em;
+}
+
+.home-paragraph button:hover {
+  background-color: #7ab95f;
 }
 
 .features-container {
@@ -122,34 +147,72 @@ button {
   color: rgb(231, 231, 231);
 }
 
-.feature-1, .feature-2, .feature-3, .feature-4 {
+.features-container img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.feature-1,
+.feature-2,
+.feature-3,
+.feature-4 {
   position: absolute;
+  max-width: 50%;
+
+  padding: 1em;
+  margin: 0.5em;
+  background-color: #24242cbe;
 }
 
-.feature-1 {
-  top: 0;
-  left: 0;
-}
-
+.feature-1,
 .feature-2 {
   top: 0;
-  right: 0;
 }
 
-.feature-3 {
+.feature-3,
+.feature-4 {
   bottom: 0;
+}
+
+.feature-1
+.feature-3 {
   left: 0;
 }
 
+.feature-2,
 .feature-4 {
-  bottom: 0;
   right: 0;
 }
+
+.feature-2 h3,
+.feature-4 h3 {
+  right: 0;
+  text-align: right;
+}
+
+.feature-1 p,
+.feature-2 p,
+.feature-3 p,
+.feature-4 p {
+  display: none;
+}
+
+.feature-1:hover p,
+.feature-2:hover p,
+.feature-3:hover p,
+.feature-4:hover p {
+  display: block;
+}
+
+
+
 
 /* Product Page */
 
 .product-page-container {
   padding: 2em;
+
 }
 
 .options-container {
@@ -165,6 +228,12 @@ button {
   margin-bottom: 1.5em;
   border: 2px solid #24242C;
   cursor: pointer;
+}
+
+.product-main-image,
+.product-description-image {
+  width: 100%;
+  height: auto;
 }
 
 .buy-button {
@@ -189,44 +258,54 @@ button {
 }
 
 .product-page-container > nav > a {
-  color: #24242C;
+  color: #6e6e6e;
   text-decoration: none;
+}
+
+.product-page-container > nav > a:hover {
+  color:#24242C;
 }
 
 .specification-container {
-  margin: 0;
+  padding-bottom: 1em;
 }
 /* to wyzej jak na razie mogę usunac i className tez */
 
-.specification-container > div > p {
-  margin: 0.3em;
-}
 
-.specification-container > nav {
+
+.specification-menu {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1em;
 }
 
-.specification-container > nav > a {
-  text-decoration: none;
-  color: #24242C;
+.specification-menu > button {
+  background-color: transparent;
 }
 
-.specification-container > nav > a:hover {
+.specification-menu > button > .fa-solid {
+  color: #6e6e6e;
+  font-size: 1rem;
+}
+
+.specification-menu > button > .fa-solid:hover {
+  color:#24242C;
+  cursor: pointer;
+}
+
+.specification-menu p {
+  font-size: 1.2rem;
   font-weight: 600;
-}
-
-.specification-container > nav > p {
+  text-align: center;
+  width: 12em;
   margin: 0;
-  cursor: default;
 }
 
 .specification-row {
   display: flex;
   justify-content: space-between;
   padding: 0 2em;
+  margin: 0.2em 0;
   background-color: rgb(233, 233, 233);
   cursor: default;
 }
@@ -240,9 +319,30 @@ button {
   margin: 0.3em;
 }
 
-.specification-img {
-  padding: 2.5em 0;
+.specification-image-container {
+  overflow: hidden;
 }
+
+.specification-image {
+  width: 100%;
+  height: auto;
+  padding: 2.5em 0;
+  animation-duration: 1s;
+  animation-name: slidein;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 100%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
 
 .product-title {
   margin: 0.4em 0;
@@ -254,3 +354,7 @@ button {
   margin: 0;
 }
 
+
+.product-page-container section {
+  padding: 2em 0;
+}

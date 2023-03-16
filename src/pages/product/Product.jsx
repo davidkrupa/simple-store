@@ -3,9 +3,7 @@ import { NavLink, Outlet } from "react-router-dom";
 import image_chopping from "../../images/knife-chopping-2.jpg"
 import { productsData } from "../../data/data"
 
-export default function Product() {
-
-    
+export default function Product() {    
     const [allVariants, setAllVariants] = useState(productsData)
     const [chosenVariant, setChosenVariant] = useState(productsData.sets[0])
 
@@ -55,7 +53,7 @@ export default function Product() {
 
     return (
         <div className="product-page-container">
-            <img src={image} />
+            <img src={image} className="product-main-image"/>
             <h1 className="product-title">Katana knives - {productsIds.length}pcs</h1>
             <p className="price">${price}</p>
             <div className="options-container">
@@ -83,7 +81,9 @@ export default function Product() {
                 </NavLink>
             </nav>
             <Outlet context={allVariants}/>
-            <img src={image_chopping} />
+            <section>
+                <img src={image_chopping} className="product-description-image"/>
+            </section>
         </div>
 
     )

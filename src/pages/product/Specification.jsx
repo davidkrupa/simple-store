@@ -25,23 +25,53 @@ export default function Specification() {
         setCount(0)
     }
 
-    const productData = products.knives.find(knife => knife.id === chosenSet.productsIds[count]?.toString()) || products.knives[0]
-    console.log(productData)
+    const productData = products.knives
+        .find(knife => knife.id === chosenSet.productsIds[count]?.toString()) || products.knives[0]
+
+    const { 
+        image,
+        name,
+        bladeLength,
+        handleLength,
+        width,
+        tickness,
+        weight 
+    } = productData
 
     return (
-        <div className="specification-container">
-            <nav>
-                <p onClick={()=>handlePrev()}>prev</p>
-                <p>{count}</p>
-                <p onClick={()=>handleNext()}> next</p>
 
-            </nav>
-            <div className="specification-img"> 
-                <img src={products.knives[count].image} />
+        <div className="specification-container">
+            <div className="specification-menu"> 
+                <button onClick={()=>handlePrev()}>
+                    <i className="fa-solid fa-arrow-left"></i>
+                </button>
+                    <p>{name}</p>
+                <button onClick={()=>handleNext()}>
+                    <i className="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+            <div className="specification-image-container"> 
+                <img src={image} className="specification-image" />
             </div>
             <div className="specification-row">
                 <p>Blade Length:</p>
-                <p>{productData.bladeLength}cm</p>
+                <p>{bladeLength}cm</p>
+            </div>
+            <div className="specification-row">
+                <p>Handle Length:</p>
+                <p>{handleLength}cm</p>
+            </div>
+            <div className="specification-row">
+                <p>Width:</p>
+                <p>{width}cm</p>
+            </div>
+            <div className="specification-row">
+                <p>Tickness:</p>
+                <p>{tickness}mm</p>
+            </div>
+            <div className="specification-row">
+                <p>Weight:</p>
+                <p>{weight}g</p>
             </div>
         </div>
     )

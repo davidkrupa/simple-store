@@ -1,6 +1,7 @@
 export const productsData = {
     knives: [
         {
+            name: "Chef's knife",
             image: "/src/images/type1.png",
             bladeLength: 19.3,
             handleLength: 13.5,
@@ -11,46 +12,51 @@ export const productsData = {
             set: [3, 5, 8]
         },
         {
-            image: "/src/images/type3.png",
-            bladeLength: 200,
-            handleLength: 13.5,
-            width: 4.3,
+            name: "Santoku knife",
+            image: "/src/images/type2.png",
+            bladeLength: 17.5,
+            handleLength: 13.2,
+            width: 4.6,
             tickness: 2,
-            weight: 198,
+            weight: 200,
             id: "2",
             set: [5, 8]
         },
         {
+            name: "Nakiri knife",
             image: "/src/images/type3.png",
-            bladeLength: 300,
-            handleLength: 13.5,
-            width: 4.3,
+            bladeLength: 15.6,
+            handleLength: 14.2,
+            width: 4.9,
             tickness: 2,
-            weight: 198,
+            weight: 211,
             id: "3",
             set: [3, 5, 8]
         },
         {
-            image: "/src/images/type1.png",
-            bladeLength: 400,
-            handleLength: 13.5,
-            width: 4.3,
+            name: "Santoku knife",
+            image: "/src/images/type4.png",
+            bladeLength: 12,
+            handleLength: 11.5,
+            width: 2.7,
             tickness: 2,
-            weight: 198,
+            weight: 94,
             id: "4",
             set: [5, 8]
         },
         {
-            image: "/src/images/type1.png",
-            bladeLength: 500,
-            handleLength: 13.5,
-            width: 4.3,
+            name: "Fruit knife",
+            image: "/src/images/type5.png",
+            bladeLength: 9.5,
+            handleLength: 11.5,
+            width: 2.1,
             tickness: 2,
-            weight: 198,
+            weight: 79,
             id: "5",
             set: [3, 5, 8]
         },
         {
+            name: "Chef's knife",
             image: "/src/images/type1.png",
             bladeLength: 600,
             handleLength: 13.5,
@@ -61,6 +67,7 @@ export const productsData = {
             set: [8]
         },
         {
+            name: "Chef's knife",
             image: "/src/images/type1.png",
             bladeLength: 700,
             handleLength: 13.5,
@@ -71,6 +78,7 @@ export const productsData = {
             set: [8]
         },
         {
+            name: "Chef's knife",
             image: "/src/images/type1.png",
             bladeLength: 800,
             handleLength: 13.5,

@@ -12,7 +12,6 @@ import Specification from './pages/product/Specification'
 import KniveInfo from './pages/product/KniveInfo'
 
 export default function App() {
-
   return ( 
       <Routes>
         <Route path='/' element={<Layout />} >
@@ -25,8 +24,6 @@ export default function App() {
             <Route path='shipping-info' element={<ShippingInfo />} />
             <Route path='specification' element={<Specification />} >
               <Route index element={<KniveInfo />} />
-              <Route path='1' element={<KniveInfo />} />
-              <Route path='2' element={<KniveInfo />} />
             </Route>
           </Route>
         </Route>
