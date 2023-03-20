@@ -1,32 +1,30 @@
 import React, { useEffect, useState } from "react";
-import { NavLink, Outlet, useOutletContext } from "react-router-dom";
+import { useOutletContext } from "react-router-dom";
 
 export default function Specification() {
-    const products = useOutletContext()
+    const { allVariants, chosenVariant } = useOutletContext()
     const [count, setCount] = useState(0)
-    
-    const chosenSet = products.sets.filter(set => set.isChosen)[0]
 
     useEffect(() => {
         setCount(0)
-    }, [products])
+    }, [allVariants])
 
     function handlePrev() {
         if(count > 0)
         setCount(count -1)
         else
-        setCount(chosenSet.productsIds.length - 1)
+        setCount(chosenVariant.productsIds.length - 1)
     }
 
     function handleNext() {
-        if(count < chosenSet.productsIds.length - 1)
+        if(count < chosenVariant.productsIds.length - 1)
         setCount(count + 1)
-        else if (count === chosenSet.productsIds.length - 1)
+        else if (count === chosenVariant.productsIds.length - 1)
         setCount(0)
     }
 
-    const productData = products.knives
-        .find(knife => knife.id === chosenSet.productsIds[count]?.toString()) || products.knives[0]
+    const productData = allVariants.knives
+        .find(knife => knife.id === chosenVariant.productsIds[count]?.toString()) || products.knives[0]
 
     const { 
         image,
@@ -39,7 +37,6 @@ export default function Specification() {
     } = productData
 
     return (
-
         <div className="specification-container">
             <div className="specification-menu"> 
                 <button onClick={()=>handlePrev()}>

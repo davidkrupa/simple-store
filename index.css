@@ -211,7 +211,7 @@ footer {
 
 /* Product Page */
 
-section {
+.product-page-container section {
   padding: 1em;
 }
 
@@ -396,6 +396,10 @@ section {
   color: rgb(245, 245, 245);
   border-bottom-left-radius: 1em;
   border-bottom-right-radius: 1em;
+}
+
+.offer-presentation-info {
+  cursor: pointer;
 }
 
 .offer-presentation-info:hover .offer-presentation-cta {
