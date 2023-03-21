@@ -100,13 +100,14 @@ footer {
   background-position: center;  
 }
 
-@media screen and (min-width: 400px) {
+@media(min-width: 576px) {
   .hero {
     height: 600px;
   }
 }
 
 .hero h1 {
+  padding: 0 0.5em;
   font-size: 3.2rem;
   letter-spacing: 0.03em;
   color: rgb(243, 243, 243);
@@ -122,27 +123,28 @@ footer {
   border-bottom: 2px solid #588544;
 }
 
-.home-paragraph {
+.home-paragraph,
+.home-paragraph-second {
   padding: 0 2em;
 }
 
-.home-paragraph h2 {
+.home-paragraph h2,
+.home-paragraph-second h2 {
   padding-top: 1em;
-  padding-bottom: 0.5em;
+  padding-bottom: 0.2em;
 }
 
-.home-paragraph span {
-  border-bottom: 4px solid green;
-}
-
-.home-paragraph button {
+.home-paragraph button,
+.home-paragraph-second button {
   color: rgb(243, 243, 243);
   padding: 1em 2em;
   margin-top: 0.7em;
+  margin-bottom: 3em;
   letter-spacing: 0.04em;
 }
 
-.home-paragraph button:hover {
+.home-paragraph button:hover
+.home-paragraph-second button:hover {
   background-color: #7ab95f;
 }
 
@@ -162,11 +164,11 @@ footer {
 .feature-3,
 .feature-4 {
   position: absolute;
-  max-width: 50%;
+  width: 40%;
 
-  padding: 1em;
+  padding: 0.5em;
   margin: 0.5em;
-  background-color: #24242cbe;
+  background-color: #24242cc9;
 }
 
 .feature-1,
@@ -207,6 +209,10 @@ footer {
 .feature-3:hover p,
 .feature-4:hover p {
   display: block;
+}
+
+.home-paragraph-second span {
+  border-bottom: 4px solid green;
 }
 
 /* Product Page */

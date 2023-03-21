@@ -24,7 +24,7 @@ export default function Specification() {
     }
 
     const productData = allVariants.knives
-        .find(knife => knife.id === chosenVariant.productsIds[count]?.toString()) || products.knives[0]
+        .find(knife => knife.id === chosenVariant.productsIds[count].toString()) || products.knives[0]
 
     const { 
         image,

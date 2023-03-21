@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import image_chopping from "../../images/knife-chopping-2.jpg"
 import { productsData } from "../../data/data"
+import { nanoid } from 'nanoid'
 
 export default function Product() {    
     const [allVariants, setAllVariants] = useState(productsData)
@@ -58,11 +59,12 @@ export default function Product() {
         const knifeNames = set.productsIds.map(id => {
             const knifeName = allVariants.knives.find(el => el.id === id.toString())
             return (
-                <li>{knifeName.name}</li>
+                <li key={knifeName.id}>{knifeName.name}</li>
             )
+            
         })
         return (
-            <>
+            <div key={set.id}>
                 <div className="offer-presentation">
                     <img src={set.image}/>
                     <div className="offer-presentation-info" onClick={() => handleBuyClick()}>                        
@@ -73,7 +75,8 @@ export default function Product() {
                     </div>
                 </div>
                 <p className="offer-presentation-price">${set.price}</p>
-            </>
+            </div>
+
         )
     })
 
