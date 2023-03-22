@@ -143,60 +143,94 @@ footer {
   letter-spacing: 0.04em;
 }
 
-.home-paragraph button:hover
-.home-paragraph-second button:hover {
+.paragraph-button:hover {
   background-color: #7ab95f;
 }
 
 .features-container {
-  position: relative;
-  color: rgb(231, 231, 231);
+  display: flex;
+  padding: 0 2em;
+  gap: 2em;
 }
 
-.features-container img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+.features-container img {  
+  width: 55%;
+  height: 55%;
+}
+
+.features-responsive {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 100%;
 }
 
 .feature-1,
 .feature-2,
 .feature-3,
 .feature-4 {
-  position: absolute;
-  width: 40%;
-
-  padding: 0.5em;
-  margin: 0.5em;
-  background-color: #24242cc9;
+  padding: 0.4em 1em;
+  margin-bottom: 0.2em;
+  letter-spacing: 0.03em;
+  line-height: 1.7em;
+  background-color: rgb(236, 236, 236);
+  color:#24242C;
 }
 
-.feature-1,
-.feature-2 {
-  top: 0;
+@media (max-width: 576px) {
+  .features-container {
+    position: relative;
+    padding: 0;
+    display: block;
+    color: rgb(231, 231, 231);
+  }
+  
+  .features-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .feature-1,
+  .feature-2,
+  .feature-3,
+  .feature-4 {
+    position: absolute;
+    width: 40%;
+  
+    padding: 0.5em;
+    margin: 0.5em;
+    background-color: #24242cc9;
+  }
+  
+  .feature-1,
+  .feature-2 {
+    top: 0;
+  }
+  
+  .feature-3,
+  .feature-4 {
+    bottom: 0;
+  }
+  
+  .feature-1
+  .feature-3 {
+    left: 0;
+  }
+  
+  .feature-2,
+  .feature-4 {
+    right: 0;
+  }
+  
+  .feature-2 h3,
+  .feature-4 h3 {
+    right: 0;
+    text-align: right;
+  }
+  
+  
 }
-
-.feature-3,
-.feature-4 {
-  bottom: 0;
-}
-
-.feature-1
-.feature-3 {
-  left: 0;
-}
-
-.feature-2,
-.feature-4 {
-  right: 0;
-}
-
-.feature-2 h3,
-.feature-4 h3 {
-  right: 0;
-  text-align: right;
-}
-
 .feature-1 p,
 .feature-2 p,
 .feature-3 p,
@@ -204,12 +238,12 @@ footer {
   display: none;
 }
 
-.feature-1:hover p,
+/* .feature-1:hover p,
 .feature-2:hover p,
 .feature-3:hover p,
 .feature-4:hover p {
   display: block;
-}
+} */
 
 .home-paragraph-second span {
   border-bottom: 4px solid green;
