@@ -10,24 +10,21 @@ export default function Header() {
 
     return (
         <header>
-            <Link to='/'>#Katana</Link>
-            <nav>
-                <NavLink 
-                    to='contact' 
-                    style={({isActive}) => isActive ? activeStyle : null}>
-                    Contact
-                </NavLink>
-                <NavLink 
-                    to='about' 
-                    style={({isActive}) => isActive ? activeStyle : null}>
-                    About Us
-                </NavLink>
-                <NavLink 
-                    to='shipping' 
-                    style={({isActive}) => isActive ? activeStyle : null}>
-                    Shipping
-                </NavLink>
-            </nav>
+            <div className="nav-container">
+                <Link to='/'>#Katana</Link>
+                <nav>
+                    <NavLink 
+                        to='contact' 
+                        style={({isActive}) => isActive ? activeStyle : null}>
+                        Contact
+                    </NavLink>
+                    <NavLink 
+                        to='about' 
+                        style={({isActive}) => isActive ? activeStyle : null}>
+                        About Us
+                    </NavLink>
+                </nav>
+            </div>
         </header>
     )
 }

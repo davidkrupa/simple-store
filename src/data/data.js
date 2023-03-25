@@ -34,7 +34,7 @@ export const productsData = {
             set: [3, 5, 8]
         },
         {
-            name: "Santoku knife",
+            name: "Santoku knife S",
             image: "/src/images/type4.png",
             bladeLength: 12,
             handleLength: 11.5,
