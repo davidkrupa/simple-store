@@ -417,7 +417,16 @@ footer {
 .description-section {
   max-width: 1050px;
   margin: auto;
-  margin-top: 1em;
+}
+
+.description-box {
+  margin-top: 3.2em;
+  padding: 0 1em;
+}
+
+.description-box p {
+  line-height: 1.7;
+  letter-spacing: 0.02em;
 }
 
 @media(min-width: 750px) {
@@ -440,12 +449,16 @@ footer {
     background-color: rgb(245, 245, 245);
   }
 
-  .description-background-box {
+  .description-box {
     background-color: #d8d8d8;
     height: 100%;
     border-radius: 0.3em;
-    padding: 0 1em;
+    padding: 0 2em;
     margin: 0;
+  }
+
+  .description-box p {
+    line-height: 2;
   }
 
   .reverse-box {
@@ -554,12 +567,13 @@ footer {
   border-bottom-right-radius: 1em;
 }
 
-.offer-presentation-info {
+.offer-presentation {
   cursor: pointer;
 }
 
-.offer-presentation-info:hover .offer-presentation-cta {
+.offer-presentation:hover .offer-presentation-cta {
   font-weight: 600;
+  background-color: #7ab95f;
 }
 
 .offer-presentation-price {
@@ -575,45 +589,87 @@ footer {
   margin: auto;
 }
 
-.review-container {
-  margin-bottom: 2em;
-  width: 80%;
-  margin: 2em auto;
-  background-color: #ececec;
-}
-
-.review-container div {
-  border-radius: 0.3em;
-  padding: 0 2em 1em;
-}
-
 .review-section h2 {
   text-align: center;
   font-size: 2rem;
 }
 
+.review-container {
+  width: 100%;
+  max-width: 380px;
+  margin: 2em auto;
+  padding: 1em;
+  background-color: #ececec;
+  border-radius: 0.3em;
+}
 
 .review-image {
-  width: 90%;
+  width: 100%;
   height: auto;
   display: block;
   margin: auto;
-  padding-top: 1em;
+  border-radius: 0.3em;
 }
 
-@media(min-width: 550px) {
+.review-body {
+  padding: 1em;
+  border-radius: 0.3em;
+}
+
+.review-body h4 {
+  margin: 0;
+}
+
+.review-body p {
+  border-radius: 0.3em;
+  padding: 1em;
+  margin: 0;
+  line-height: 1.7em;
+  background-color: #d8d8d8;
+}
+
+.review-name-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5em 1em 1em;
+}
+
+.review-stars {
+  height: auto;
+  max-width: 100px;
+}
+
+@media(min-width: 600px) {
   .review-container {
     display: flex;
-    gap: 2em;
+    max-width: 100%;
+    gap: 1em;
   }
 
   .review-image {
     max-width: 200px;
-    height: auto;
+    border-radius: 0.3em;
   }
 
-  .review-container div {
-    padding: 0 2em;
+  .review-body {
+    padding: 1em 0;
+  }
+}
+
+@media(min-width: 720px) {
+  .review-container {
+    gap: 1em;
+  }
+
+  .review-image {
+    max-width: 250px;
+    padding: 1em;
+    border-radius: 1.3em;
+  }
+
+  .review-body {
+    padding: 1em 2em;
   }
 }
 
