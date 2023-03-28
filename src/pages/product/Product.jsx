@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { NavLink, Outlet } from "react-router-dom";
-import image_chopping from "../../images/knife-chopping-2.jpg"
-import review1 from "../../images/review1.jpg"
-import review2 from "../../images/review2.jpg"
-import review3 from "../../images/review3.jpg"
+import descriptionImage1 from "../../images/description-image-1.jpg"
+import descriptionImage2 from "../../images/description-image-2.jpg"
+import descriptionImage3 from "../../images/description-image-3.jpg"
 import stars from "../../images/stars.png"
 import { productsData } from "../../data/data"
+import { reviews } from "../../data/reviews"
 
 export default function Product() {    
     const [allVariants, setAllVariants] = useState(productsData)
     const [chosenVariant, setChosenVariant] = useState(productsData.sets[0])
+    const [customerReviews, setCustomerReviews] = useState(reviews)
+    const [count, setCount] = useState(0)
 
     const chosenStyle = {
         backgroundColor: "#24242C",
@@ -37,7 +39,23 @@ export default function Product() {
     }
 
     function handleBuyClick() {
+        return
         console.log("product added to cart")
+    }
+
+    function handleReviewChange(id) {
+        if(id === "next") {
+            if(count !== customerReviews.length -1) {
+                setCount(count + 1)
+            }
+            else setCount(0)
+        }
+        else if(id === "prev") {
+            if(count !== 0) {
+                setCount(count -1)
+            }
+            else setCount(customerReviews.length - 1)
+        }
     }
     
     useEffect(() => {
@@ -94,9 +112,17 @@ export default function Product() {
                         onClick={() => handleBuyClick()}>
                             Buy now
                     </button>
+                    <p className="shipping-note"><i className="fa-solid fa-truck-fast"></i> Free shipping, delivery in 5 days! </p>
+                    <hr></hr>
                     <nav>
                         <NavLink 
                             to="details" 
+                            style={({isActive}) => isActive ? active : null}
+                        >
+                            Description
+                        </NavLink>
+                        <NavLink 
+                            to="specification" 
                             style={({isActive}) => isActive ? active : null}
                         >
                             Details
@@ -107,19 +133,13 @@ export default function Product() {
                         >
                             Shipping
                         </NavLink>
-                        <NavLink 
-                            to="specification" 
-                            style={({isActive}) => isActive ? active : null}
-                        >
-                            Specification
-                        </NavLink>
                     </nav>
                     <Outlet context={{allVariants, chosenVariant}}/>
                 </div>
             </section>
 
             <section className="description-section">
-                <img src={image_chopping} className="product-description-image"/>
+                <img src={descriptionImage1} className="product-description-image"/>
                 <div className="description-box">
                     <h2>Solid construction</h2>
                     <p>Japanese kitchen knives are known for their solid construction, which is achieved through the use of high-quality materials and traditional forging techniques. The blades are made of high-carbon or steel, and are carefully crafted to ensure sharpness, durability, and precision cutting.</p>
@@ -127,7 +147,7 @@ export default function Product() {
             </section>
 
             <section className="description-section reverse">
-                <img src={image_chopping} className="product-description-image"/>
+                <img src={descriptionImage2} className="product-description-image"/>
                 <div className="description-box reverse-box">
                     <h2>For chefs and home cooks</h2>
                     <p>We take pride in offering high-quality kitchen knives that are both functional and stylish. Katana knives allow for more precise slicing, dicing, and chopping. Our knives are perfect for both professional chefs and home cooks who are looking for reliable and long-lasting tools in the kitchen.</p>
@@ -135,7 +155,7 @@ export default function Product() {
             </section>
 
             <section className="description-section">
-                <img src={image_chopping} className="product-description-image"/>
+                <img src={descriptionImage3} className="product-description-image"/>
                 <div className="description-box">
                     <h2>Ergonomic design</h2>
                     <p>Ergonomic design is a key feature of Katana kitchen knives, with the handles and blades designed to fit comfortably in the user's hand. The balance of the knife is carefully considered, with the weight distributed evenly along the blade and handle. This design ensures that the knife feels balanced and stable.</p>
@@ -151,35 +171,23 @@ export default function Product() {
 
             <section className="review-section">
                 <h2>Reviews</h2>
-                <div className="review-container">
-                    <img src={review1} className="review-image" />
-                    <div className="review-body">
-                        <div className="review-name-container"> 
-                            <h4>Brenda T.</h4>
-                            <img src={stars} className="review-stars" />
+                <div className="review-section-container">
+                    <button onClick={() => handleReviewChange("prev")}>
+                        <i className="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <div className="review-container">
+                        <img src={customerReviews[count].image} className="review-image" />
+                        <div className="review-body">
+                            <div className="review-name-container"> 
+                                <h4>{customerReviews[count].name}</h4>
+                                <img src={stars} className="review-stars" />
+                            </div>
+                            <p>{customerReviews[count].body}</p>
                         </div>
-                        <p>Those knives are amazing! I use them every day and my friend always ask where did I get them. I am so haapy to have them. Highly recommended!</p>
                     </div>
-                </div>
-                <div className="review-container">
-                    <img src={review2} className="review-image" />
-                    <div className="review-body">
-                        <div className="review-name-container">                        
-                            <h4>Rudolf S.</h4>
-                            <img src={stars} className="review-stars" />
-                        </div>
-                        <p>Those knives are amazing! I use them every day and my friend always ask where did I get them. I am so haapy to have them. Highly recommended!</p>
-                    </div>
-                </div>
-                <div className="review-container">
-                    <img src={review3} className="review-image" />
-                    <div className="review-body">
-                        <div className="review-name-container">
-                            <h4>Merry J.</h4>
-                            <img src={stars} className="review-stars" />
-                        </div>
-                        <p>Those knives are amazing! I use them every day and my friend always ask where did I get them. I am so haapy to have them. Highly recommended!</p>
-                    </div>
+                    <button onClick={() => handleReviewChange("next")}>
+                        <i className="fa-solid fa-chevron-right"></i>
+                    </button>
                 </div>
             </section>
 
