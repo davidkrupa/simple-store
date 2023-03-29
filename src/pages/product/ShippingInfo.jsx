@@ -2,6 +2,6 @@ import React from "react";
 
 export default function ShippingInfo() {
     return (
-        <p>We ship every order within 48 hours. You will get tracking code on your email. Please be aware that sometimes tracking code is generated with delay by carrier. If you already have a tracking number you can check the status Here</p>
+        <p className="short-info">We're delighted to offer our customers free shipping on all orders! Your order will be shipped within 48 hours. You can expect your product to be delivered within 5 days. We understand the importance of timely delivery and are committed to ensuring that your product arrives promptly and in perfect condition.</p>
     )
 }

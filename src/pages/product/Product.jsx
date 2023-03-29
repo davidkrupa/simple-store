@@ -116,7 +116,8 @@ export default function Product() {
                     <hr></hr>
                     <nav>
                         <NavLink 
-                            to="details" 
+                            to="."
+                            end
                             style={({isActive}) => isActive ? active : null}
                         >
                             Description
