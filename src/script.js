@@ -1,5 +1,5 @@
-const onClickButton = () =>{
-    fetch("http://localhost:5147/create-checkout-session", {
+export default function stripeCheckout() {
+    fetch("http://localhost:5173/create-checkout-session", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -17,7 +17,8 @@ const onClickButton = () =>{
             return res.json().then(json => Promise.reject(json))
         })
         .then(({ url }) => {
-            window.location = url
+            console.log(url)
+            //window.location = url
         })
         .catch(e => {
             console.error(e.error)
