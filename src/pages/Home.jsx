@@ -39,6 +39,9 @@ export default function Home() {
                 <Link to='knives'>
                     <button className="paragraph-button">Find out more</button>
                 </Link>
+                <Link to='checkout'>
+                    <button className="paragraph-button">Checkout</button>
+                </Link>
             </section>
 
             <section className="features-container">

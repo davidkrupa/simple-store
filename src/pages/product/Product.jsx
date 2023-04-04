@@ -6,7 +6,7 @@ import descriptionImage3 from "../../images/description-image-3.jpg"
 import stars from "../../images/stars.png"
 import { productsData } from "../../data/data"
 import { reviews } from "../../data/reviews"
-import stripeCheckout from "../../script";
+
 
 export default function Product() {    
     const [allVariants, setAllVariants] = useState(productsData)
@@ -40,9 +40,7 @@ export default function Product() {
     }
 
     function handleBuyClick() {
-        stripeCheckout()
-        return
-        console.log("product added to cart")
+        console.log("buy button clicked")
     }
 
     function handleReviewChange(id) {

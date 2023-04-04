@@ -6,9 +6,7 @@ export default function stripeCheckout() {
         },
         body: JSON.stringify({
             items: [
-                { id: 1, quantity: 1 },
-                { id: 2, quantity: 1 },
-                { id: 3, quantity: 1 },
+                { id: "1", quantity: 1 }
             ],
         }),
     })
