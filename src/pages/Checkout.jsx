@@ -19,8 +19,13 @@ export default function Checkout() {
     })
 
     useEffect(() => {
+        const products = JSON.stringify({
+          items: [{id: 1, quantity: 1}]
+        })
+
         async function createPaymentIntent() {
-            const response = await axios.post("/api/create-payment-intent", {})
+            const response = await axios.post("/api/create-payment-intent", {products})
+            
             setClientSecretSettings({
                 clientSecret: response.data.client_secret,
                 loading: false
