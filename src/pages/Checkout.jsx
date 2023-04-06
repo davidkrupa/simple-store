@@ -12,25 +12,22 @@ const initStripe = async () => {
 }
 
 export default function Checkout() {
-    const stripePromise = initStripe()
+    //const stripePromise = initStripe()
+    const [stripePromise, setStripePromise] = useState(() => initStripe())
     const[clientSecretSettings, setClientSecretSettings] = useState({
         clientSecret: "",
         loading: true
     })
 
     useEffect(() => {
-        const products = JSON.stringify({
-          items: [{id: 1, quantity: 1}]
-        })
-
         async function createPaymentIntent() {
-            const response = await axios.post("/api/create-payment-intent", {products})
-            
+            const response = await axios.post("/api/create-payment-intent", {})
+            console.log(response)
             setClientSecretSettings({
                 clientSecret: response.data.client_secret,
                 loading: false
             })
-        }
+        }    
         createPaymentIntent()
     }, [])
 
@@ -45,6 +42,7 @@ export default function Checkout() {
               clientSecret: clientSecretSettings.clientSecret,
               appearance: { theme: "stripe" },
             }}
+            key={clientSecretSettings.clientSecret}
           >
             <CheckoutForm />
           </Elements>
