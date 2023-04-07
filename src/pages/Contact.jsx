@@ -6,21 +6,26 @@ export default function Contact() {
         <div className="contact-form-container">
             <h1>Contact us</h1>
             <form className="contact-form">
-                <div>
-                    <input
-                        type="name"
-                        name="name"
-                        placeholder="Name"
-                    />
-                    <input
-                        type="email"
-                        name="email"
-                        placeholder="Email address"
-                    />
-                </div>
-                <textarea name="question" rows="4">
+                <input
+                    type="name"
+                    name="name"
+                    placeholder="Name"
+                    className="field-style"
+                />
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Email address"
+                    className="field-style"
+                />
+                <textarea 
+                    name="question" 
+                    rows="8"
+                    cols="100"
+                    className="field-style"
+                >
                 </textarea>
-                <button>Send your message</button>
+                <button className="contact-button">Send your message</button>
             </form>
         </div>
     )

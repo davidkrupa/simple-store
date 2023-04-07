@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import descriptionImage1 from "../../images/description-image-1.jpg"
 import descriptionImage2 from "../../images/description-image-2.jpg"
 import descriptionImage3 from "../../images/description-image-3.jpg"
@@ -13,6 +13,7 @@ export default function Product() {
     const [chosenVariant, setChosenVariant] = useState(productsData.sets[0])
     const [customerReviews, setCustomerReviews] = useState(reviews)
     const [count, setCount] = useState(0)
+    const navigate = useNavigate()
 
     const chosenStyle = {
         backgroundColor: "#24242C",
@@ -41,6 +42,7 @@ export default function Product() {
 
     function handleBuyClick() {
         console.log("buy button clicked")
+        navigate("/checkout")
     }
 
     function handleReviewChange(id) {

@@ -12,7 +12,6 @@ const initStripe = async () => {
 }
 
 export default function Checkout() {
-    //const stripePromise = initStripe()
     const [stripePromise, setStripePromise] = useState(() => initStripe())
     const[clientSecretSettings, setClientSecretSettings] = useState({
         clientSecret: "",
